@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fog Control</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            width: 200px;
+            height: 200px;
+            font-size: 2em;
+            border-radius: 100px;
+            background-color: #444;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:active {
+            background-color: #0f0;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <button id="fogButton">FOG</button>
+
+    <script>
+        const fogButton = document.getElementById('fogButton');
+        const onURL = "https://maker.ifttt.com/trigger/fog_on/json/with/key/4sN8nwi3EcxSd3Fyymx6z";
+        const offURL = "https://maker.ifttt.com/trigger/fog_off/json/with/key/4sN8nwi3EcxSd3Fyymx6z";
+
+        fogButton.addEventListener('mousedown', () => fetch(onURL));
+        fogButton.addEventListener('mouseup', () => fetch(offURL));
+        fogButton.addEventListener('touchstart', () => fetch(onURL));
+        fogButton.addEventListener('touchend', () => fetch(offURL));
+    </script>
+</body>
+</html>
